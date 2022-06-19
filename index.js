@@ -10,7 +10,7 @@ const productRouter = require('./routes/product.js')
 const userRouter = require('./routes/user.js')
 
 // Set default PORT number
-const PORT = 3000
+const PORT = process.env.PORT || 3000
 
 // MongoDB Url Path
 const db = `mongodb+srv://${process.env.USER_NAME}:${process.env.USER_PASS}@cluster0.vtonx.mongodb.net/?retryWrites=true&w=majority`
@@ -34,6 +34,6 @@ mongoose.connect(db)
   })
 
 // Listen to server
-app.listen(PORT, '0.0.0.0', function () {
+app.listen(PORT, function () {
   console.log(`Connected at port ${PORT}`)
 })
